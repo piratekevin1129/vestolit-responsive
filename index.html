@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inducción SST VESTOLIT</title>
+
+    <link href="assets/css/reset.css" type="text/css" rel="stylesheet" />
+    <link href="assets/css/fonts.css" type="text/css" rel="stylesheet" />
+    <link href="assets/css/main.css" type="text/css" rel="stylesheet" />
+    <link href="assets/css/hover.css" type="text/css" rel="stylesheet" />
+
+    <!--CSS DE AJUSTES NUEVOS-->
+    <link href="assets/css/ajustes.css" type="text/css" rel="stylesheet" />
+    
+    <link href="assets/spider/timeline/timeline.css" type="text/css" rel="stylesheet" />
+    <link href="assets/spider/cc/cc.css" type="text/css" rel="stylesheet" />
+    <link href="assets/spider/sprites/fotograma.css" type="text/css" rel="stylesheet" />
+
+    <link href="assets/css/responsive.css" type="text/css" rel="stylesheet" />
+</head>
+<body onbeforeunload="doUnload(false);" onunload="doUnload();">
+    <div id="container">
+        <header id="header" class="header_title">
+            <div>
+                <div id="breadcrumbs">
+                    <p id="breadcrumbs_txt"></p>
+                </div>
+            </div>
+            <section>
+                <div id="helpers">
+                    <div class="helper" id="siguiente_btn" onclick="clickSiguiente()">
+                        <div onmouseover="overHelper(this)" onmouseout="outHelper(this)"></div>
+                        <p class="helper_p_off">Siguiente</p>
+                    </div>
+                    <div class="helper" id="anterior_btn" onclick="clickAnterior()">
+                        <div onmouseover="overHelper(this)" onmouseout="outHelper(this)"></div>
+                        <p class="helper_p_off">Anterior</p>
+                    </div>
+                    <div class="helper" id="documentos_btn" onclick="clickDocumentos()">
+                        <div onmouseover="overHelper(this)" onmouseout="outHelper(this)"></div>
+                        <p class="helper_p_off">Documentos</p>
+                    </div>
+                </div>
+                <div id="menu_btn" class="menu_btn_open" onclick="clickMenu(this)">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+                <div id="menu_txt" onclick="clickMenu(null)">MENÚ ▼</div>
+                <div id="menu_wrapper" class="menu_wrapper_off"></div>
+            </section>
+        </header>
+        <div id="main">
+            <iframe style="display: none;" id="i_frame" allowfullscreen="true" scrolling="no" frameborder="0" border="0"></iframe>
+            <div id="video_cont" style="display: none;">
+                <video id="video_vid" playsinline></video>
+                <div id="fondo_preloader" class="fondo_preloader_off"></div>
+
+                <div id="timeline" class="spd_timeline_core"></div>
+                <div id="cc" class="cc_on">
+                    <p id="cc_txt"></p>
+                </div>
+            </div>
+            <div id="video_responsive">
+
+            </div>
+            <iframe style="display: none;" id="i_frame2" allowfullscreen="true" scrolling="no" frameborder="0" border="0"></iframe>
+        </div>
+        <div id="modal" class="modal_off">
+            <div id="modal_box">
+                <div id="modal_icon"></div>
+                <div id="modal_content"></div>
+                <button id="modal_btn">Aceptar</button>
+            </div>
+        </div>
+
+        <div id="bos_instrucciones_cont" class="instru_off">
+            <div id="bos_instrucciones" class="spd_movieclip" width="204" height="134" frames="58" src="assets/images/msj/"></div>
+        </div>
+
+        <div id="cargador" class="cargador_off">
+            <div id="cargador_icon">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+            <div id="cargador_txt">Cargando...</div>
+        </div>
+    </div>
+</body>
+
+<script src="assets/js/scormfunctions.js"></script>
+<script src="assets/js/language.js"></script>
+<script src="assets/js/tools.js"></script>
+<script src="assets/js/menu_data.js"></script>
+<script src="assets/js/main.js"></script>
+
+<script src="assets/spider/timeline/timeline.js"></script>
+<script src="assets/spider/cc/cc.js"></script>
+
+<script src="assets/spider/sprites/fotograma.js"></script>
+
+<script src="assets/js/scorm.js"></script>
+<!--<script src="assets/js/expand.js"></script>-->
+<script src="assets/js/responsive.js"></script>
+
+<script src="assets/js/ajustes.js"></script>
+<script src="assets/js/variable.js"></script>
+
+<script>
+
+var idglobal;
+var cargador_txt = document.getElementById('cargador_txt')
+//ocultar todo al principio
+hideMenu()
+hideHelpers()
+
+var instrucciones_div = document.getElementById('bos_instrucciones_cont')
+var instrucciones_sprite = document.getElementById('bos_instrucciones')
+
+window.onload = function(){
+    
+    //spdCreateMovieClip({idname:'bos_instrucciones',callBack:function(){
+        //spdCreateMovieClipAnimation({id:0,moviename:'bos_instrucciones'})
+        document.getElementById('bos_instrucciones_cont').style.display = 'none'
+
+        //iniciar con scorm
+        //initScorm()
+        
+        //iniciar sin scorm
+        createNavegacion()
+        createMenu()
+        setWelcomePage()
+    //}})
+    
+}
+
+resizeContainer()
+
+function startCourse(){
+    //mostrar los botones de la cabecera
+    showMenu()
+    showHelpers()
+    //ocultar titulo para que se vea la miga de pan "breadcrumbs"
+    //getI('header').classList.remove('header_title')
+    getI('header').classList.add('header_title_none')
+    
+    desbloquearSiguiente()
+    nextTema()
+}
+
+</script>
+</html>

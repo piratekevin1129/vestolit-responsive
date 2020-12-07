@@ -1,0 +1,45 @@
+#pahorcado{
+    text-align: justify !important;
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+}
+
+#bpal{
+    background-color: #009289;
+    padding-left: 10px;
+    padding-right: 10px;
+    color: #FFFFFF;
+    padding-bottom: 3px;
+}
+
+#pahorcado2{
+    text-align: justify !important;
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+}
+
+#bn{
+    text-align: center !important;
+    font-size: 24px !important;
+    font-family: 'WorkSans-Medium' !important;
+    padding-left: 40%;
+    padding-left: calc(40% - 13px);
+    padding-left: -moz-calc(40% - 13px);
+}
+
+#bn2{
+    text-align: center !important;
+    font-size: 24px !important;
+    font-family: 'WorkSans-Medium' !important;
+    padding-left: 45%;
+    padding-left: calc(45% - 13px);
+    padding-left: -moz-calc(45% - 13px);
+}
+
+#bverde {
+    color: #009289 !important;
+}
+
+.menu_submodulos_on{
+    max-height: 550px !important;
+}
